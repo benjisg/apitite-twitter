@@ -1,17 +1,17 @@
 {
 	name : "twitter",
 	version : "1",
-	baseURL : "api.twitter.com/1/",
+	base : "api.twitter.com/1/",
 	services : {
 		"timelines" : {
-			serviceURL : "statuses",
+			service : "statuses",
 			routes : {
 				"homeTimeline" : {
-					auth : true,
 					"GET" : {
+						auth : true,
 						description : "Returns the 20 most recent statuses, including retweets if they exist, posted by the authenticating user and the user's they follow. This is the same timeline seen by a user when they login twitter.com",
-						structure : "/home_timeline.:FORMAT:PARAMS",
 						formats : ["json", "xml", "rss", "atom"],
+						structure : "/home_timeline.{FORMAT}{PARAMS}",
 						params : {
 							"count" : {
 								type : "integer",
@@ -55,11 +55,11 @@
 					}
 				},
 				"mentions" : {
-					auth : true,
 					"GET" : {
+						auth : true,
 						description : "Returns the 20 most recent mentions (status containing @username) for the authenticating user.",
-						structure : "/mentions.:FORMAT:PARAMS",
 						formats : ["json", "xml", "rss", "atom"],
+						structure : "/mentions.{FORMAT}{PARAMS}",
 						params : {
 							"count" : {
 								type : "integer",
@@ -103,11 +103,11 @@
 					}
 				},
 				"publicTimeline" : {
-					auth : false,
 					"GET" : {
+						auth : false,
 						description : "Returns the 20 most recent statuses, including retweets if they exist, from non-protected users.",
-						structure : "/public_timeline.:FORMAT:PARAMS",
 						formats : ["json", "xml", "rss", "atom"],
+						structure : "/public_timeline.{FORMAT}{PARAMS}",
 						params : {
 							"trim_user" : {
 								type : "boolean",
@@ -121,11 +121,11 @@
 					}
 				},
 				"retweetedByMe" : {
-					auth : true,
 					"GET" : {
+						auth : true,
 						description : "Returns the 20 most recent retweets posted by the authenticating user.",
-						structure : "/retweeted_by_me.:FORMAT:PARAMS",
 						formats : ["json", "xml", "atom"],
+						structure : "/retweeted_by_me.{FORMAT}{PARAMS}",
 						params : {
 							"count" : {
 								type : "integer",
@@ -157,11 +157,11 @@
 					}
 				},
 				"retweetedToMe" : {
-					auth : true,
 					"GET" : {
+						auth : true,
 						description : "Returns the 20 most recent retweets posted by users the authenticating user follow.",
-						structure : "/retweeted_to_me.:FORMAT:PARAMS",
 						formats : ["json", "xml", "atom"],
+						structure : "/retweeted_to_me.{FORMAT}{PARAMS}",
 						params : {
 							"count" : {
 								type : "integer",
@@ -193,11 +193,11 @@
 					}
 				},
 				"retweetsOfMe" : {
-					auth : true,
 					"GET" : {
+						auth : true,
 						description : "Returns the 20 most recent tweets of the authenticated user that have been retweeted by others.",
-						structure : "/retweets_of_me.:FORMAT:PARAMS",
 						formats : ["json", "xml", "atom"],
+						structure : "/retweets_of_me.{FORMAT}{PARAMS}",
 						params : {
 							"count" : {
 								type : "integer",
@@ -229,11 +229,11 @@
 					}
 				},
 				"userTimeline" : {
-					auth : false,
 					"GET" : {
+						auth : false,
 						description : "Returns the 20 most recent statuses posted by the authenticating user. It is also possible to request another user's timeline by using the screen_name or user_id parameter. The other users timeline will only be visible if they are not protected, or if the authenticating user's follow request was accepted by the protected user.",
-						structure : "/user_timeline.:FORMAT:PARAMS",
 						formats : ["json", "xml", "rss", "atom"],
+						structure : "/user_timeline.{FORMAT}{PARAMS}",
 						params : {
 							"user_id" : {
 								type : "integer",
@@ -285,11 +285,11 @@
 					}
 				},
 				"retweetedToUser" : {
-					auth : false,
 					"GET" : {
+						auth : false,
 						description : "Returns the 20 most recent retweets posted by users the specified user follows. The user is specified using the user_id or screen_name parameters.",
-						structure : "/retweeted_to_user.:FORMAT:PARAMS",
 						formats : ["json", "xml"],
+						structure : "/retweeted_to_user.{FORMAT}{PARAMS}",
 						params : {
 							"screen_name" : {
 								type : "string",
@@ -325,11 +325,11 @@
 					}
 				},
 				"retweetedByUser" : {
-					auth : false,
 					"GET" : {
+						auth : false,
 						description : "Returns the 20 most recent retweets posted by the specified user. The user is specified using the user_id or screen_name parameters. ",
-						structure : "/retweeted_by_user.:FORMAT:PARAMS",
 						formats : ["json", "xml"],
+						structure : "/retweeted_by_user.{FORMAT}{PARAMS}",
 						params : {
 							"screen_name" : {
 								type : "string",
