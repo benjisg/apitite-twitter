@@ -1,7 +1,7 @@
 {
 	"name" : "twitter",
 	"version" : "1",
-	"base" : "api.twitter.com/1/",
+	"base" : "api.twitter.com/1",
 	"services" : {
 		"timelines" : {
 			"service" : "statuses",
