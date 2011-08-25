@@ -1,5 +1,5 @@
 
-This is the hook-up specification file defining access to the twitter REST API for apitite.
+This is the API map defining access to the twitter REST API for apitite.
 
 This is a work in progress and currently defines a limited subset of the whole API.
 
