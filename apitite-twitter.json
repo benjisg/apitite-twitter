@@ -4,11 +4,11 @@
 	"base" : "api.twitter.com/1",
 	"services" : {
 		"timelines" : {
-			"service" : "statuses",
+			"service" : "/statuses",
 			"routes" : {
 				"homeTimeline" : {
 					"GET" : {
-						"auth" : true,
+						"auth" : "required",
 						"description" : "Returns the 20 most recent statuses, including retweets if they exist, posted by the \"auth\"enticating user and the user's they follow. This is the same timeline seen by a user when they login twitter.com",
 						"formats" : ["json", "xml", "rss", "atom"],
 						"structure" : "/home_timeline.{FORMAT}{PARAMS}",
@@ -56,7 +56,7 @@
 				},
 				"mentions" : {
 					"GET" : {
-						"auth" : true,
+						"auth" : "required",
 						"description" : "Returns the 20 most recent mentions (status containing @username) for the \"auth\"enticating user.",
 						"formats" : ["json", "xml", "rss", "atom"],
 						"structure" : "/mentions.{FORMAT}{PARAMS}",
@@ -104,7 +104,7 @@
 				},
 				"publicTimeline" : {
 					"GET" : {
-						"auth" : false,
+						"auth" : "optional",
 						"description" : "Returns the 20 most recent statuses, including retweets if they exist, from non-protected users.",
 						"formats" : ["json", "xml", "rss", "atom"],
 						"structure" : "/public_timeline.{FORMAT}{PARAMS}",
@@ -122,7 +122,7 @@
 				},
 				"retweetedByMe" : {
 					"GET" : {
-						"auth" : true,
+						"auth" : "required",
 						"description" : "Returns the 20 most recent retweets posted by the \"auth\"enticating user.",
 						"formats" : ["json", "xml", "atom"],
 						"structure" : "/retweeted_by_me.{FORMAT}{PARAMS}",
@@ -158,7 +158,7 @@
 				},
 				"retweetedToMe" : {
 					"GET" : {
-						"auth" : true,
+						"auth" : "required",
 						"description" : "Returns the 20 most recent retweets posted by users the \"auth\"enticating user follow.",
 						"formats" : ["json", "xml", "atom"],
 						"structure" : "/retweeted_to_me.{FORMAT}{PARAMS}",
@@ -194,7 +194,7 @@
 				},
 				"retweetsOfMe" : {
 					"GET" : {
-						"auth" : true,
+						"auth" : "required",
 						"description" : "Returns the 20 most recent tweets of the \"auth\"enticated user that have been retweeted by others.",
 						"formats" : ["json", "xml", "atom"],
 						"structure" : "/retweets_of_me.{FORMAT}{PARAMS}",
@@ -230,7 +230,7 @@
 				},
 				"userTimeline" : {
 					"GET" : {
-						"auth" : false,
+						"auth" : "optional",
 						"description" : "Returns the 20 most recent statuses posted by the \"auth\"enticating user. It is also possible to request another user's timeline by using the screen_name or user_id parameter. The other users timeline will only be visible if they are not protected, or if the \"auth\"enticating user's follow request was accepted by the protected user.",
 						"formats" : ["json", "xml", "rss", "atom"],
 						"structure" : "/user_timeline.{FORMAT}{PARAMS}",
@@ -286,7 +286,7 @@
 				},
 				"retweetedToUser" : {
 					"GET" : {
-						"auth" : false,
+						"auth" : "optional",
 						"description" : "Returns the 20 most recent retweets posted by users the specified user follows. The user is specified using the user_id or screen_name parameters.",
 						"formats" : ["json", "xml"],
 						"structure" : "/retweeted_to_user.{FORMAT}{PARAMS}",
@@ -326,7 +326,7 @@
 				},
 				"retweetedByUser" : {
 					"GET" : {
-						"auth" : false,
+						"auth" : "optional",
 						"description" : "Returns the 20 most recent retweets posted by the specified user. The user is specified using the user_id or screen_name parameters. ",
 						"formats" : ["json", "xml"],
 						"structure" : "/retweeted_by_user.{FORMAT}{PARAMS}",
